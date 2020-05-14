@@ -11,9 +11,9 @@ from prometheus_client.gc_collector import GC_COLLECTOR
 from prometheus_client.platform_collector import PLATFORM_COLLECTOR
 from prometheus_client.process_collector import PROCESS_COLLECTOR
 
-from kako_blueplanet_exporter.config import get_config
-from kako_blueplanet_exporter.query import get_solar_data
-from kako_blueplanet_exporter.states import states
+from kaco_blueplanet_exporter.config import get_config
+from kaco_blueplanet_exporter.query import get_solar_data
+from kaco_blueplanet_exporter.states import states
 
 
 class CustomCollector(object):

@@ -2,7 +2,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 from datetime import datetime
 from typing import Dict
-from kako_blueplanet_exporter.states import states
+from kaco_blueplanet_exporter.states import states
 
 session = requests.Session()
 
