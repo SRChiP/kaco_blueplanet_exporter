@@ -1,0 +1,13 @@
+[Unit]
+Description=Prometheus exporter for the kaco solar web interface
+#Wants=network-online.target
+#After=network-online.target
+
+[Service]
+Restart=always
+User=prometheus
+WorkingDirectory=/opt
+ExecStart=/usr/bin/python3 -m kaco_blueplanet_exporter.main
+
+[Install]
+WantedBy=multi-user.target

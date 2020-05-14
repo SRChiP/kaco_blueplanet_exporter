@@ -25,28 +25,28 @@ class CustomCollector(object):
         data = get_solar_data(self.url, self.username, self.password)
 
         g = GaugeMetricFamily(
-            "ac_power_generated_kw",
+            "solar_ac_power_generated_kw",
             "The amount of power sent to the grid",
             value=data["generator_ac_power_kW"],
         )
         yield g
 
         g = GaugeMetricFamily(
-            "dc_power_generated_kw",
+            "solar_dc_power_generated_kw",
             "The amount of power generated",
             value=data["generator_dc_power_kW"],
         )
         yield g
 
         g = GaugeMetricFamily(
-            "temperature",
+            "solar_temperature",
             "The temperature of the inverter unit",
             value=data["temperature"],
         )
         yield g
 
         g = GaugeMetricFamily(
-            "datetime",
+            "solar_record_datetime",
             "The datetime the record was taken",
             value=int(datetime.now().timestamp()),
         )
@@ -56,12 +56,8 @@ class CustomCollector(object):
             states[sta]: True if data["status"] == states[sta] else False
             for sta in states
         }
-        s = StateSetMetricFamily("state", "The state of the inverter", ss)
+        s = StateSetMetricFamily("solar_state", "The state of the inverter", ss)
         yield s
-        #
-        # c = CounterMetricFamily("HttpRequests", "Help text", labels=["app"])
-        # c.add_metric(["example"], 2000)
-        # yield c
 
 
 if __name__ == "__main__":
