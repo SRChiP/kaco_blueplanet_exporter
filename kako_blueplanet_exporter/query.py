@@ -1,16 +1,21 @@
-import httpx
+import requests
+from requests.auth import HTTPBasicAuth
 from datetime import datetime
 from typing import Dict
 from kako_blueplanet_exporter.states import states
 
-session = httpx.Client()
+session = requests.Session()
 
 number_of_solar_strings = 2
 number_of_ac_phases = 3
 
 
 def get_solar_data(url: str, username: str, password: str) -> Dict:
-    auth = httpx.BasicAuth(username, password) if (username and password) else None
+    auth = (
+        requests.auth.HTTPBasicAuth(username, password)
+        if (username and password)
+        else None
+    )
     output_data = session.get(url, auth=auth)
 
     data = output_data.content.decode("utf-8").split(";")

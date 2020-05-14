@@ -70,7 +70,7 @@ if __name__ == "__main__":
     REGISTRY.unregister(GC_COLLECTOR)
 
     REGISTRY.register(CustomCollector())
-    start_http_server(8200)
+    start_http_server(int(get_config("local_port")))
     while True:
         time.sleep(1)
 

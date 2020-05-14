@@ -7,8 +7,8 @@ verify_ssl = true
 black = "*"
 
 [packages]
-httpx = "*"
 prometheus-client = "*"
+requests = "*"
 
 [requires]
 python_version = "3.8"
